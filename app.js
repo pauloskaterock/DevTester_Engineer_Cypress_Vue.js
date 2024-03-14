@@ -32,7 +32,19 @@ const init = async () => {
             };
         }
     });
+// new route ----------------------------------------------------------------
 
+    server.route({
+        method: 'POST',
+        path: '/user',
+        handler: (request, h) => {
+
+            return { 
+                id: 2,
+            };
+        }
+    });
+// -------------------------------------------------------------------------
     await server.start();
     console.log('Server running on %s', server.info.uri);
 };
