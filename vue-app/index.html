@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PH Vue App</title>
+    <!--<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+    <script> src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" </script>
+</head>
+<body>
+
+    <!------------------------------------------------------------------------------------>
+    <div id="app">
+
+        <h1> {{ message }}</h1>
+        <ul>
+            <li v-for="task in tasks">
+                {{ task.name }}
+            </li>
+        </ul>
+        <input type="text" placeholder="task name" v-model="taskName"/>
+        <button v-on: click="addTask">Adicionar</button>
+       
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello Vue-js',
+                taskName: '',
+                tasks: [
+                    {name: 'Especializar-se em JS'},
+                    {name: 'Especializar-se em Ruby'},
+                    {name: 'Especializar-se em Java'}
+                ]
+            },
+                methods: {
+                    addTask() {
+                        this.tasks.push({name: this.taskName})
+                    }
+                
+            }
+        })
+    </script>
+
+    <!-------------------------------------------------------------------------------------------------->
+    
+</body>
+</html>
